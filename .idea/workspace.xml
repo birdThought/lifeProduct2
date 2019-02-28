@@ -556,7 +556,7 @@
       <workItem from="1551263939564" duration="20000" />
       <workItem from="1551315886688" duration="8966000" />
       <workItem from="1551342238902" duration="893000" />
-      <workItem from="1551343146745" duration="909000" />
+      <workItem from="1551343146745" duration="954000" />
     </task>
     <task id="LOCAL-00001" summary="清除ides产生的文件">
       <created>1551344012584</created>
@@ -565,11 +565,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551344012584</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="清除ides产生的文件">
+      <created>1551344084503</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1551344084503</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33977000" />
+    <option name="totallyTimeSpent" value="34022000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
