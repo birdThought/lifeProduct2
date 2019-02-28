@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efd6ae7c-cadb-4af6-8108-36e8dbd31cdd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="efd6ae7c-cadb-4af6-8108-36e8dbd31cdd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/product-api/target/" />
@@ -556,7 +554,7 @@
       <workItem from="1551263939564" duration="20000" />
       <workItem from="1551315886688" duration="8966000" />
       <workItem from="1551342238902" duration="893000" />
-      <workItem from="1551343146745" duration="1441000" />
+      <workItem from="1551343146745" duration="1557000" />
     </task>
     <task id="LOCAL-00001" summary="清除ides产生的文件">
       <created>1551344012584</created>
@@ -590,7 +588,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34509000" />
+    <option name="totallyTimeSpent" value="34625000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
