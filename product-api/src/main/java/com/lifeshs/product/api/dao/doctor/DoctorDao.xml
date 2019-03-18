@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >-->
+<mapper namespace="com.lifeshs.product.api.dao.doctor.DoctorDao">
+    <update id="setStatus1" parameterType="java.lang.String">
+        UPDATE `t_user_measurement_reminder_detail` SET reminderStatus='0'
+        WHERE reminderDetailId =#{id,jdbcType=VARCHAR}
+
+    </update>
+    <update id="setStatus0">
+         UPDATE `t_user_measurement_reminder_detail` SET reminderStatus='1'
+        WHERE reminderDetailId =#{id,jdbcType=VARCHAR}
+
+    </update>
+
+    <!--<resultMap id="BaseResultMap" type="com.lifeshs.product.api.controller.pojo.User" >-->
+        <!--<id column="id" property="id" jdbcType="INTEGER" />-->
+        <!--<result column="user_name" property="username" jdbcType="VARCHAR" />-->
+        <!--<result column="password" property="password" jdbcType="VARCHAR" />-->
+        <!--&lt;!&ndash;<result column="age" property="age" jdbcType="INTEGER" />&ndash;&gt;-->
+    <!--</resultMap>-->
+    <!--<sql id="Base_Column_List" >-->
+    <!--</sql>-->
+    <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >-->
+        <!--delete from sys_user-->
+        <!--where id = #{id,jdbcType=INTEGER}-->
+    <!--</delete>-->
+    <select id="findByLoginname" resultType="com.lifeshs.product.api.domain.po.Doctor" parameterType="java.lang.String" >
+        select
+        id, username, password
+        from t_doctor
+        where username = #{username,jdbcType=INTEGER}
+    </select>
+    <!--<select id="findDoctor" resultType="java.lang.String" parameterType="java.lang.String">-->
+        <!--SELECT a.realName FROM  t_user b , t_doctor a-->
+        <!--WHERE  a.userName = b.userName AND-->
+         <!--a.userName =#{username,jdbcType=INTEGER}-->
+ <!--</select>-->
+    <!--<select id="findAllTime" resultType="java.util.Date">-->
+        <!--SELECT createDate FROM t_user-->
+
+    <!--&lt;!&ndash;</select>&ndash;&gt;-->
+    <!--<insert id="diaLogBox"  parameterType="com.lifeshs.product.api.controller.pojo.Doctor">-->
+        <!--INSERT `t_doctor`-->
+        <!--(userCode,userName,PASSWORD,content)-->
+        <!--VALUES(#{userCode,jdbcType=CHAR},#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},-->
+        <!--#{content,jdbcType=VARCHAR})-->
+
+    <!--</insert>-->
+    <!--        id, user_name, password, age
+
+        <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+            select
+            <include refid="Base_Column_List" />
+            from user_t
+            where id = #{id,jdbcType=INTEGER}
+        </select>
+
+        <insert id="insert" parameterType="com.lifeshs.product.api.controller.pojo.User" >
+            insert into user_t (id, user_name, password,
+            age)
+            values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+            #{age,jdbcType=INTEGER})
+        </insert>
+        <insert id="insertSelective" parameterType="com.lifeshs.product.api.controller.pojo.User" >
+            insert into user_t
+            <trim prefix="(" suffix=")" suffixOverrides="," >
+                <if test="id != null" >
+                    id,
+                </if>
+                <if test="userName != null" >
+                    user_name,
+                </if>
+                <if test="password != null" >
+                    password,
+                </if>
+                <if test="age != null" >
+                    age,
+                </if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides="," >
+                <if test="id != null" >
+                    #{id,jdbcType=INTEGER},
+                </if>
+                <if test="userName != null" >
+                    #{userName,jdbcType=VARCHAR},
+                </if>
+                <if test="password != null" >
+                    #{password,jdbcType=VARCHAR},
+                </if>
+                <if test="age != null" >
+                    #{age,jdbcType=INTEGER},
+                </if>
+            </trim>
+        </insert>
+        <update id="updateByPrimaryKeySelective" parameterType="com.lifeshs.product.api.controller.pojo.User" >
+            update user_t
+            <set >
+                <if test="userName != null" >
+                    user_name = #{userName,jdbcType=VARCHAR},
+                </if>
+                <if test="password != null" >
+                    password = #{password,jdbcType=VARCHAR},
+                </if>
+                <if test="age != null" >
+                    age = #{age,jdbcType=INTEGER},
+                </if>
+            </set>
+            where id = #{id,jdbcType=INTEGER}
+        </update>
+        <update id="updateByPrimaryKey" parameterType="com.lifeshs.product.api.controller.pojo.User" >
+            update user_t
+            set user_name = #{userName,jdbcType=VARCHAR},
+            password = #{password,jdbcType=VARCHAR},
+            age = #{age,jdbcType=INTEGER}
+            where id = #{id,jdbcType=INTEGER}
+        </update>
+
+
+
+        <select id="findByLoginname" resultMap="com.lifeshs.product.api.controller.pojo.User" parameterType="java.lang.String" >
+            select
+           id, username, password
+            from sys_user
+            where username = #{name,jdbcType=INTEGER}
+        </select>-->
+</mapper>

@@ -48,5 +48,6 @@
             <appender-ref ref="err"/>
         </root>
     </loggers>
+    &amp;lt;!DOCTYPE xml&amp;gt;
 
 </configuration>
