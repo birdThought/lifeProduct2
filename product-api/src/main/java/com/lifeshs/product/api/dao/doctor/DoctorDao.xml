@@ -3,49 +3,81 @@
 <!--<?xml version="1.0" encoding="UTF-8" ?>-->
 <!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >-->
 <mapper namespace="com.lifeshs.product.api.dao.doctor.DoctorDao">
+    <insert id="addNotice" parameterType="com.lifeshs.product.api.domain.vo.task_pust">
+    INSERT  `t_user_task_pust`(receice_id,content,cycle,status,creact_time,illness)
+
+      VALUES (#{receice_id},#{content},#{cycle},1,#{creact_time},#{illness})
+
+    </insert>
+
     <update id="setStatus1" parameterType="java.lang.String">
         UPDATE `t_user_measurement_reminder_detail` SET reminderStatus='0'
         WHERE reminderDetailId =#{id,jdbcType=VARCHAR}
 
     </update>
     <update id="setStatus0">
+
          UPDATE `t_user_measurement_reminder_detail` SET reminderStatus='1'
+
         WHERE reminderDetailId =#{id,jdbcType=VARCHAR}
 
     </update>
+    <update id="setStatus">
+        UPDATE t_user_task_pust
+        <set>
+            <if test="status!= null and status == 1">
+                status='0'
+            </if>
+            <if test="status!=null and status == 0">
+                status='1'
+            </if>
+
+        </set>
+        <where>
+            id =#{id,jdbcType=VARCHAR}
+        </where>
+    </update>
+    <update id="changPassWord">
+      UPDATE `t_doctor` SET PASSWORD = #{newPsw} WHERE id = #{id}
+    </update>
+
 
     <!--<resultMap id="BaseResultMap" type="com.lifeshs.product.api.controller.pojo.User" >-->
-        <!--<id column="id" property="id" jdbcType="INTEGER" />-->
-        <!--<result column="user_name" property="username" jdbcType="VARCHAR" />-->
-        <!--<result column="password" property="password" jdbcType="VARCHAR" />-->
-        <!--&lt;!&ndash;<result column="age" property="age" jdbcType="INTEGER" />&ndash;&gt;-->
+    <!--<id column="id" property="id" jdbcType="INTEGER" />-->
+    <!--<result column="user_name" property="username" jdbcType="VARCHAR" />-->
+    <!--<result column="password" property="password" jdbcType="VARCHAR" />-->
+    <!--&lt;!&ndash;<result column="age" property="age" jdbcType="INTEGER" />&ndash;&gt;-->
     <!--</resultMap>-->
     <!--<sql id="Base_Column_List" >-->
     <!--</sql>-->
     <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >-->
-        <!--delete from sys_user-->
-        <!--where id = #{id,jdbcType=INTEGER}-->
+    <!--delete from sys_user-->
+    <!--where id = #{id,jdbcType=INTEGER}-->
     <!--</delete>-->
-    <select id="findByLoginname" resultType="com.lifeshs.product.api.domain.po.Doctor" parameterType="java.lang.String" >
+    <select id="findByLoginname" resultType="com.lifeshs.product.api.domain.po.Doctor" parameterType="java.lang.String">
         select
         id, username, password
         from t_doctor
-        where username = #{username,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="findAllNotice" resultType="com.lifeshs.product.api.domain.vo.task_pust">
+        SELECT  * FROM `t_user_task_pust` WHERE
+         status = '1'
     </select>
     <!--<select id="findDoctor" resultType="java.lang.String" parameterType="java.lang.String">-->
-        <!--SELECT a.realName FROM  t_user b , t_doctor a-->
-        <!--WHERE  a.userName = b.userName AND-->
-         <!--a.userName =#{username,jdbcType=INTEGER}-->
- <!--</select>-->
+    <!--SELECT a.realName FROM  t_user b , t_doctor a-->
+    <!--WHERE  a.userName = b.userName AND-->
+    <!--a.userName =#{username,jdbcType=INTEGER}-->
+    <!--</select>-->
     <!--<select id="findAllTime" resultType="java.util.Date">-->
-        <!--SELECT createDate FROM t_user-->
+    <!--SELECT createDate FROM t_user-->
 
     <!--&lt;!&ndash;</select>&ndash;&gt;-->
     <!--<insert id="diaLogBox"  parameterType="com.lifeshs.product.api.controller.pojo.Doctor">-->
-        <!--INSERT `t_doctor`-->
-        <!--(userCode,userName,PASSWORD,content)-->
-        <!--VALUES(#{userCode,jdbcType=CHAR},#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},-->
-        <!--#{content,jdbcType=VARCHAR})-->
+    <!--INSERT `t_doctor`-->
+    <!--(userCode,userName,PASSWORD,content)-->
+    <!--VALUES(#{userCode,jdbcType=CHAR},#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},-->
+    <!--#{content,jdbcType=VARCHAR})-->
 
     <!--</insert>-->
     <!--        id, user_name, password, age
